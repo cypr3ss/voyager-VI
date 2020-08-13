@@ -1,6 +1,6 @@
 module.exports = (client, message) => {
-	if (message.content.startsWith('$voyage')) {
-		let commr = require(`./../commands/${message.content.substring(8, message.content.indexOf(' ', 8))}.js`);
+	if (message.content.startsWith('$voyager')) {
+		let commr = require(`./../commands/${message.content.substring(9, message.content.indexOf(' ', 9)).trim()}.js`);
 		/*
 		pads so diff cmd lengths are accepted
 		$voyager!ahoy!...
@@ -12,4 +12,3 @@ module.exports = (client, message) => {
 		commr(message.channel, message, client);
 	}
 };
-
