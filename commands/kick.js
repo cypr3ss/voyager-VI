@@ -7,6 +7,7 @@ module.exports = (channel, last_msg, client) => {
     */
     var mbits = last_msg.content.substring(9).split(' ');
     let loger = [0, 0];
+    try {channel.guild.fetchMember(mbits[0]);} catch(err) {channel.send('malformed request: invalid user ID');}
     /*
     0: ban
     */
