@@ -21,14 +21,6 @@ module.exports = (channel, last_msg, client) => {
         }
         if (channel.guild.fetchMember(mbits[0]).bannable) {
             channel.guild.fetchMember(mbits[0]).ban({ days: parseInt(mbits[2]) }, 0, mbits.join(" ").substring(mbits.join(" ").indexOf("\""), mbits.join(" ").indexOf("\"", mbits.join(" ").indexOf("\"") + 1) + 1).substring(1, mbits.join(" ").substring(mbits.join(" ").indexOf("\""), mbits.join(" ").indexOf("\"", mbits.join(" ").indexOf("\"") + 1) + 1).length - 1) || "mod intervention").then(channel.send(`banned user #${mbits[0]}`));
-            /* don't mess with this. it prevents mem. leaks......... i think
-            .
-            .
-            .
-            .
-            .
-            & what the heck, it's actually faster, since it just says "cut from the first index of '"' to the next first index of '"' after
-            the first index of '"' */
         } else {
             channel.send('bot needs permission to ban this user. try moving the bot\'s role higher than the user\'s');
         }
