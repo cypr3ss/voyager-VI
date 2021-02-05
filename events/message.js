@@ -1,6 +1,10 @@
 module.exports = (client, message) => {
 	if (message.content.startsWith('$voyager')) {
-		let commr = require(`./../commands/${message.content.substring(9, message.content.indexOf(' ', 9)).trim()}.js`);
+		try {
+			const mbits = last_msg.content.substring(9).split(' ').filter(Boolean);
+			mbits.og = message;
+			let commr = require(`./../commands/${mbits[0].trim()}.js`);
+			commr(message.channel, mbits, client);
 		/*
 		pads so diff cmd lengths are accepted
 		$voyager!ahoy!...
@@ -9,6 +13,8 @@ module.exports = (client, message) => {
 		this also means i'll have to put another function for cmd && cmd,
 		but I really just care abt how does my child performs ;~;
 		*/
-		commr(message.channel, message, client);
+		} catch(e) {
+			message.channel.send("malformed request. check spelling or use the command 'help'");
+		}
 	}
 };

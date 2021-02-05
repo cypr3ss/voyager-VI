@@ -1,6 +1,5 @@
 const Discord = require('discord.js');
 const fs = require('fs');
-require('dotenv').config();
 const client = new Discord.Client();
 fs.readdir('./events/', (err, files) => {
 	files.forEach(file => {
@@ -10,4 +9,4 @@ fs.readdir('./events/', (err, files) => {
 	});
 });
 
-client.login(process.env.BOT_TOKEN);
+client.login(/*token*/);
